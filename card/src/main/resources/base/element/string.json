@@ -1,0 +1,16 @@
+{
+  "string": [
+    {
+      "name": "module_desc",
+      "value": "module description"
+    },
+    {
+      "name": "CardAbility_desc",
+      "value": "description"
+    },
+    {
+      "name": "CardAbility_label",
+      "value": "label"
+    }
+  ]
+}
