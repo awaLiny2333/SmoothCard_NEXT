@@ -78,6 +78,7 @@ struct LinysRCard {
       } else {
         this.press_zoom += (1 - this.press_zoom) / 5
       }
+      this.set_lrw()
     }, 10)
   }
 
@@ -109,7 +110,7 @@ struct LinysRCard {
     return (this.degree % 360)
   }
 
-  get_lrw() {
+  set_lrw() {
     this.degree = this.get_uni_deg()
     let uni_rad = (this.degree / 360) * 2 * Math.PI
     this.card_l = (1 - (Math.sin(uni_rad) / this.zoom_rate)) * this.card_height
@@ -117,14 +118,12 @@ struct LinysRCard {
   }
 
   get_lx() {
-    this.get_lrw()
-
+    this.degree = this.get_uni_deg()
     if (this.degree > 180) {
       return this.card_width - ((this.degree - 180) / 180) * this.card_width
     } else {
       return (this.degree) / 180 * this.card_width
     }
-
   }
 
   get_rx() {
@@ -133,24 +132,18 @@ struct LinysRCard {
   }
 
   get_ly1() {
-    this.get_lrw()
-
     return this.card_height * 0.5 - 0.5 * this.card_l
   }
 
   get_ly2() {
-    this.get_lrw()
-
     return this.card_height * 0.5 + 0.5 * this.card_l
   }
 
   get_ry1() {
-    this.get_lrw()
     return this.card_height * 0.5 - 0.5 * this.card_r
   }
 
   get_ry2() {
-    this.get_lrw()
     return this.card_height * 0.5 + 0.5 * this.card_r
   }
 
